@@ -13,7 +13,7 @@ def register_new_user_and_return_email_password_name(user_payload):
 
     response = create_user(user_payload)
 
-    if response.status_code == 201:
+    if response.status_code == 200:
         return user_payload
 
     return None

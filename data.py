@@ -3,7 +3,7 @@ class UrlApi:
 
     create_user_api = f'{url}auth/register'
     login_api = f'{url}auth/login'
-    login_api = f'{url}orders'
+    order_api = f'{url}orders'
     delete_api = f'{url}auth/user'
     
 
