@@ -17,4 +17,16 @@ class Response:
     login_incorrect_data = {"success": False,
         "message": "email or password are incorrect"}
 
+class Ingredients:
+    exist_ingredients = {
+    "ingredients": ["61c0c5a71d1f82001bdaaa6f", "61c0c5a71d1f82001bdaaa72"]
+}
+
+    empty_ingredients = {
+    "ingredients": []
+}
+
+    wrong_ingredients = {
+    "ingredients": ["61c0c5a71d1f821qw00aaa6f", "61c0c5a712234d1f82001b72"]
+}
 

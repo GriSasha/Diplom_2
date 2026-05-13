@@ -7,6 +7,9 @@ from data import Response
 
 class TestLogin:
 
+    @allure.title('Существующий пользователь может авторизоваться')
+    @allure.description('Вводим логин и пароль зарегистрированного пользователя, отправляем запрос на авторизацию,' \
+    'ожидаем статус ответа - 200')
     def test_login_existing_user(self, registered_user):
         login_payload = {
             'email': registered_user['email'],
@@ -17,6 +20,11 @@ class TestLogin:
 
         assert response.status_code == 200
 
+    @allure.title('Сисиема вернет ошибку авторизации при вводе ошибочного email')
+    @allure.description('Вводим ошибочный email и пароль зарегистрированного пользователя, ' \
+    'отправляем запрос на авторизацию,' \
+    'ожидаем статус ответа - 401 и ответ: "success": False, ' \
+    '"message": "email or password are incorrect"')
     def test_login_with_wrong_email_returns_error(self, registered_user):
         login_payload = {
             'email': 'wrong_email',
@@ -28,6 +36,12 @@ class TestLogin:
         assert response.status_code == 401
         assert response.json() == Response.login_incorrect_data
 
+
+    @allure.title('Сисиема вернет ошибку авторизации при вводе ошибочного пароля')
+    @allure.description('Вводим зарегистрированный email и ошибочный пароль, ' \
+    'отправляем запрос на авторизацию,' \
+    'ожидаем статус ответа - 401 и ответ: "success": False, ' \
+    '"message": "email or password are incorrect"')
     def test_login_with_wrong_password_returns_error(self, registered_user):
         login_payload = {
             'email': registered_user['email'],
