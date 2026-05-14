@@ -20,8 +20,8 @@ class TestLogin:
 
         assert response.status_code == 200
 
-    @allure.title('Сисиема вернет ошибку авторизации при вводе ошибочного email')
-    @allure.description('Вводим ошибочный email и пароль зарегистрированного пользователя, ' \
+    @allure.title('Система вернет ошибку авторизации при вводе ошибочного email')
+    @allure.description('Вводим ошибочный email и корректный пароль зарегистрированного пользователя, ' \
     'отправляем запрос на авторизацию,' \
     'ожидаем статус ответа - 401 и ответ: "success": False, ' \
     '"message": "email or password are incorrect"')
@@ -37,7 +37,7 @@ class TestLogin:
         assert response.json() == Response.login_incorrect_data
 
 
-    @allure.title('Сисиема вернет ошибку авторизации при вводе ошибочного пароля')
+    @allure.title('Система вернет ошибку авторизации при вводе ошибочного пароля')
     @allure.description('Вводим зарегистрированный email и ошибочный пароль, ' \
     'отправляем запрос на авторизацию,' \
     'ожидаем статус ответа - 401 и ответ: "success": False, ' \
